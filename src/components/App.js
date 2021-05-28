@@ -1,59 +1,47 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import { useReactToPrint } from "react-to-print";
+import uniqid from "uniqid";
 
-import GeneralInfo from "./GeneralInfo";
-import Experience from "./Experience";
-import Skills from "./Skills";
-import Education from "./Education";
+import Forms from "./Forms";
+import Views from "./Views";
 
 import "../styles/App.css";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentlyEditing: true,
-      ids: (function () {
-        const arrID = [];
-        for (let i = 0; i < 10; i++) {
-          arrID.push("_" + Math.random().toString(36).substr(2, 9));
-        }
-        return arrID;
-      })(),
-    };
-    this.toggleEdit = this.toggleEdit.bind(this);
-  }
+const App = () => {
+  const [generalInfo, setGeneralInfo] = useState({ id: uniqid() });
+  const [experience, setExperience] = useState([{ id: uniqid() }]);
+  const [education, setEducation] = useState([{ id: uniqid() }]);
+  const [skills, setSkills] = useState("");
 
-  toggleEdit() {
-    const { currentlyEditing } = this.state;
-    this.setState({
-      currentlyEditing: !currentlyEditing,
-    });
-  }
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
-  render() {
-    return (
-      <>
-        <button id="edit-btn" onClick={this.toggleEdit}>
-          {this.state.currentlyEditing ? "SAVE ALL" : "EDIT"}
-        </button>
-        <div className="App">
-          <h1 className="cv-head">CURRICULUM VITAE</h1>
-          <GeneralInfo currentlyEditing={this.state.currentlyEditing} />
-          <Experience
-            currentlyEditing={this.state.currentlyEditing}
-            ids={this.state.ids}
-          />
-          <div className="app-flex-cont">
-            <Skills currentlyEditing={this.state.currentlyEditing} />
-            <Education
-              ids={this.state.ids}
-              currentlyEditing={this.state.currentlyEditing}
-            />
-          </div>
-        </div>
-      </>
-    );
-  }
-}
+  return (
+    <div className="App">
+      <button className="btn" onClick={handlePrint}>
+        PRINT
+      </button>
+      <Forms
+        generalInfo={generalInfo}
+        experience={experience}
+        education={education}
+        skills={skills}
+        setGeneralInfo={setGeneralInfo}
+        setExperience={setExperience}
+        setEducation={setEducation}
+        setSkills={setSkills}
+      />
+      <Views
+        generalInfo={generalInfo}
+        experience={experience}
+        education={education}
+        skills={skills}
+        ref={componentRef}
+      />
+    </div>
+  );
+};
 
 export default App;

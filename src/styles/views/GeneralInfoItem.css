@@ -1,0 +1,16 @@
+.personal-photo {
+  height: 8em;
+  width: 8em;
+  object-fit: cover;
+}
+
+.GeneralInfoItem {
+  display: flex;
+}
+
+.GeneralInfoText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 30px;
+}

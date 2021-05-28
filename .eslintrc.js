@@ -5,29 +5,17 @@ module.exports = {
   },
   extends: [
     "plugin:react/recommended",
-    "google",
     "plugin:prettier/recommended",
+    "google",
   ],
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
+    ecmaFeatures: { jsx: true },
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["react"],
   rules: {
-    "require-jsdoc": [
-      "error",
-      {
-        require: {
-          FunctionDeclaration: false,
-          MethodDefinition: false,
-          ClassDeclaration: false,
-          ArrowFunctionExpression: false,
-          FunctionExpression: false,
-        },
-      },
-    ],
+    // eslint-disable-next-line prettier/prettier
+    "quotes": [2, "double"],
+    "object-curly-spacing": [2, "always"],
   },
 };

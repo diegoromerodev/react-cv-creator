@@ -1,14 +1,7 @@
-<h1>Formal curriculum generator</h1>
-<p>Webapp that creates a curriculum with classic (boring) design. Try it out!</>
+<h1>RESUMÉ BUILDER BUILT USING REACTJS</h1>
 
-<code>$ npm i & npm run build & npm start</code>
+<p>Utility made to help you easily create your resume/cv (includes sample info for demo)</p>
 
-<p>Stack:</p>
-<ul>
-    <li>React</li>
-    <li>Webpack</li>
-    <li>Babel</li>
-    <li>NPM</li>
-    <li>ESLint</li>
-    <li>Prettier</li>
-</ul>
+<h3>Try it by typing the following in your terminal: 
+    <code>$ npm i && npm start</code>
+</h3>

@@ -1,48 +1,20 @@
-.app-flex-cont {
-  display: flex;
-  justify-content: space-evenly;
-}
-
 .App {
-  width: calc(90vw / 2);
-  margin: 0 auto;
-  box-shadow: 0 0 20px rgba(3, 3, 3, 0.2);
-  padding-bottom: 50px;
-  border-radius: 5px;
-  margin-top: 60px;
-  background-color: #fafafa;
+  display: flex;
+  overflow: hidden;
+  background-color: #2ec4b6;
 }
 
-.cv-head {
-  text-align: center;
-  padding-top: 30px;
+.App > button {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  background-color: #e71d36;
 }
 
 @media (max-width: 1250px) {
   .App {
-    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
   }
-}
-
-#edit-btn {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 10px 20px;
-  font-size: 1.5em;
-  margin-top: 10px;
-  margin-right: 10px;
-  border-radius: 3px;
-  font-family: "Poppins", sans-serif;
-  cursor: pointer;
-  background-color: rgb(15, 94, 197);
-  box-shadow: 0 0 5px rgba(3, 3, 3, 0.1);
-  transition: all 0.4s ease-in-out;
-  color: #fafafa;
-}
-
-#edit-btn:hover {
-  color: #fbfbfb;
-  background-color: rgb(37, 112, 209);
-  box-shadow: 0 0 10px rgba(3, 3, 3, 0.3);
 }
