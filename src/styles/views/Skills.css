@@ -1,6 +1,0 @@
-.skills-list {
-  word-break: break-all;
-  list-style-type: none;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(30px, 1fr));
-}
